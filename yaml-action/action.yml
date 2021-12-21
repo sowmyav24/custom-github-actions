@@ -1,0 +1,19 @@
+name: 'Custom action'
+
+inputs:
+  name:
+    description: "Repo name"
+    required: true
+  description:
+    description: "Description of repo"
+    default: 'Node application'
+    required: false
+
+description: 'Github custom action example'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Echo repo details
+      shell: bash
+      run: echo ${{ inputs.name }} ${{ inputs.description }}
